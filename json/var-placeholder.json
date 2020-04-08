@@ -1,0 +1,20 @@
+{
+  "data": {
+    "type":"vars",
+    "attributes": {
+      "key":"placeholder",
+      "value":"https://i.picsum.photos/id/867/600/800.jpg",
+      "category":"terraform",
+      "hcl":false,
+      "sensitive":false
+    },
+    "relationships": {
+      "workspace": {
+        "data": {
+          "id":"ws-A9EKtAR96PK6iEzq",
+          "type":"workspaces"
+        }
+      }
+    }
+  }
+}
