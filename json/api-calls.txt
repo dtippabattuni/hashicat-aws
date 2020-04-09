@@ -1,10 +1,16 @@
 https://www.terraform.io/docs/cloud/api/variables.html
 
+# API call to run apply on TFE
 curl -s --request POST --header "Authorization: Bearer $TOKEN" --header "Content-Type: application/vnd.api+json"   https://app.terraform.io/api/v2/runs --data @apply.json
+
+# API calls to create variables on TFE
 curl -s --request POST --header "Authorization: Bearer $TOKEN" --header "Content-Type: application/vnd.api+json"   https://app.terraform.io/api/v2/vars --data @var-placeholder.json
 curl -s --request POST --header "Authorization: Bearer $TOKEN" --header "Content-Type: application/vnd.api+json"   https://app.terraform.io/api/v2/vars --data @var-height.json
 curl -s --request POST --header "Authorization: Bearer $TOKEN" --header "Content-Type: application/vnd.api+json"   https://app.terraform.io/api/v2/vars --data @var-width.json
 
+
 export TOKEN=$(grep token /root/.terraformrc | cut -d '"' -f2)
 export ORG="MYORGNAME"
+
+# API call to get workspace ID
 curl -s --header "Authorization: Bearer $TOKEN" --header "Content-Type: application/vnd.api+json"   https://app.terraform.io/api/v2/organizations/$ORG/workspaces/hashicat-aws | jq -r .data.id
